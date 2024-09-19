@@ -48,7 +48,8 @@ async function renderBookmarks() {
     $("#createBookmark").show();                        //Gestion de l'affichage
     $("#abort").hide();                                 //Gestion de l'affichage
     let bookmarks = await API_GetBookmarks();   
-
+    manageSelectedCategory(bookmarks);
+    
     eraseContent();
     if (bookmarks !== null) {
         let categories = [];

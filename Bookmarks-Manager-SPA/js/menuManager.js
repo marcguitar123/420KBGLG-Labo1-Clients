@@ -36,3 +36,19 @@ function updateDropDownMenu(categories) {
         renderBookmarks();
     });
 }
+
+function manageSelectedCategory(bookmarks) {
+    if (!verifyIfSelectedCategoryExist(bookmarks))
+        selectedCategory = "";
+}
+
+function verifyIfSelectedCategoryExist(bookmarks) {
+    if (selectedCategory === "")
+        return true;
+
+    for (let i = 0; i < bookmarks.length; i++) {
+        if (bookmarks[i].Category === selectedCategory)        
+            return true;
+    }
+    return false;
+}
