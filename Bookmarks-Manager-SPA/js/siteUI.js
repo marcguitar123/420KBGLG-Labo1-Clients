@@ -70,7 +70,6 @@ async function renderBookmarks() {
             saveContentScrollPosition();
             renderDeleteBookmarkForm(parseInt($(this).attr("deleteBookmarkId")));
         });
-        $(".bookmarkRow").on("click", function (e) { e.preventDefault(); })
     } else {
         renderError("Service introuvable");
     }
@@ -179,7 +178,7 @@ function renderBookmarkForm(bookmark = null) {
         favicon ='<img src="bookmark-star-logo.svg" class="appLogo" alt="Favicon">';
     }
     else {
-        favicon = GetFavicon(bookmark.Url, "favicon_CreateUpdate", true); 
+        favicon = GetFavicon(bookmark.Url, "favicon_CreateUpdate", false); 
     }
     $("#actionTitle").text(create ? "Création" : "Modification");
     $("#content").append(`
@@ -263,7 +262,7 @@ function renderBookmark(bookmark) {
      <div class="bookmarkRow" bookmark_id=${bookmark.Id}">
         <div class="bookmarkContainer noselect">
             <div class="bookmarkLayout">
-                <div>${GetFavicon(bookmark.Url, "favicon", false)}</div>
+                <div class="containerFaviconIndex">${GetFavicon(bookmark.Url, "favicon", true)}</div>
                 <span class="bookmarkTitle">${bookmark.Title}</span>
                 <span class="bookmarkCategory">${bookmark.Category}</span>
             </div>

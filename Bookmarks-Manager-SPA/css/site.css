@@ -106,19 +106,25 @@
 
 .bookmarkLayout {
     display: grid;
-    grid-template-columns: 25px 85%;
+    grid-template-columns: 25px auto;
     padding: 10px;
     gap: 8px;
     align-items: center;
+    grid-template-areas: 
+    "favicon title"
+    "category category"
+    ;
 }
 
 .bookmarkTitle {
+    grid-area: title;
     font-size: 1.1rem;
     font-weight: bold;
     color: black;
 }
 
 .bookmarkCategory {
+    grid-area: category;
     color: rgb(41, 149, 253);
 }
 
@@ -153,6 +159,24 @@
 
     .bookmarkLayout {
         grid-template-columns: 40px 65% 25%;
+        gap: 0px;
+        margin: 2px;
+    }
+
+    .bookmarkTitle {
+        grid-area: auto;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: black;
+    }
+
+    .bookmarkCategory {
+        grid-area: auto;
+        color: rgb(41, 149, 253);
+    }
+
+    .containerFaviconIndex {
+        grid-area: auto;
     }
 }
 
@@ -195,9 +219,14 @@ a {
 }
 
 
+
 .favicon {
     width: 25px;
     height: 25px;
+}
+
+.containerFaviconIndex {
+    grid-area: favicon;
 }
 
 .favicon_CreateUpdate {
